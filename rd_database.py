@@ -6,11 +6,9 @@ import pandas as pd
 import datetime
 import json
 
-# Define your RD Station API credentials
-client_id = "2e20fc30-4d7f-476a-b161-2e1185b3bc7e"
-client_secret = "a20807b68e854c658c2599870c2a9b96"
-access_token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS5yZC5zZXJ2aWNlcyIsInN1YiI6ImJ1SFB0Y1FNNVJ4RkhaVFROUGwydS1jN3htMlFRbjVLRnZvVzFETktDeG9AY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vYXBwLnJkc3RhdGlvbi5jb20uYnIvYXBpL3YyLyIsImFwcF9uYW1lIjoiZGF0YWJhc2VfcGxwbCIsImV4cCI6MTY5NDk3ODg0OCwiaWF0IjoxNjk0ODkyNDQ4LCJzY29wZSI6IiJ9.EMWMEwkoTtKzPq5b6Zc9If02ojCJcXiXzMqns7Vcw6VPXcqOy8J0wYXChE_j_SOLndPKHtM5yN2pRxFO-Lza21Oczcyv4B6zTn7sy7NAUypas7_gWhjNdT9oczgpXvCijFgoaW-pgYayiYqedLQ5cFKWSwzmlgi1m0lGeAUGysrNLKRqnxwCxpZXt0vUySEH0uG3yyZQgJ_gnyHKgnwVlV_aZZEhl6g8EBPiaopHaTqLbeZzh081EcDK5aIwRgaTPt_m-jL7dqlbGITA_vH7jIqh-fhJgr3_eA4u4p62xX99XCAmygsmHVY4lN5pgm433sFfG34tjLqSrylfOU870g",
-refresh_token = "w596nfk7XuswdllK-Zt3HhsCxRNCwvFhOitZbsk5ffQ"
+# API credentials
+client_id = "your_id"
+client_secret = "your_secret"
 today = datetime.datetime.today().strftime("%Y-%m-%d %H:%M:%S")
 today2 = datetime.datetime.today().strftime("%Y-%m-%d")
 
@@ -42,7 +40,7 @@ def generate_token(id, secret, refresh):
     r = response.json()
     return r["access_token"], r["refresh_token"]
 
-# Listar todos os emails
+# list of all emails
 def get_emails(access_token):
 
     print(f"Executando get_emails {today}")
@@ -81,7 +79,7 @@ def get_emails(access_token):
     return emails
 
 # Lista de todos os uuid na segmentação 'Todos os contatos da Base de Leads'
-df = pd.read_excel(r"G:\Drives compartilhados\Spinoff Drive\RD_Database\Segmentations_contacts.xlsx", sheet_name=0)
+df = pd.read_excel(r"G:\path\file.xlsx", sheet_name=0)
 list_uuid = df['uuid'].tolist()
 
 
